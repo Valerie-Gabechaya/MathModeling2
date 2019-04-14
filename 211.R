@@ -79,5 +79,40 @@ summary(model2)
 #дисперсионный анализ
 anova(model2)
 #графическое представление модели:
-plot(model2)
 
+
+# МОДЕЛЬ 3
+formula2 = h2o_flux~rand_err_LE+LE+rand_err_LE+rand_err_h2o_flux+h2o_time_lag+sonic_temperature+air_temperature+air_density+air_molar_volume+es+RH+VPD+u_star_+TKE+un_LE+un_h2o_flux+w_div_h2o_cov
+#создаем модель линейной регрессии
+model3 = lm(formula2, data = data);model2
+#коэффициенты
+coef(model3)
+#остатки
+resid(model3)
+#доверительный интервал
+confint(model3)
+#P-значения по модели
+summary(model3)
+#дисперсионный анализ
+anova(model3)
+#графическое представление модели:
+
+# МОДЕЛЬ 4
+formula3 = h2o_flux~LE+rand_err_LE+air_density+air_molar_volume+es+RH+VPD+un_LE+un_h2o_flux+w_div_h2o_cov
+#создаем модель линейной регрессии
+model4 = lm(formula3, data = data);model3
+#коэффициенты
+coef(model4)
+#остатки
+resid(model4)
+#доверительный интервал
+confint(model4)
+#P-значения по модели
+summary(model4)
+#дисперсионный анализ
+anova(model4)
+#графическое представление модели:
+
+formula4 = h2o_flux~VPD+LE
+model5= lm(formula4,data=data)
+summary(model5)
